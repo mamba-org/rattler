@@ -102,7 +102,8 @@ use tempfile::NamedTempFile;
 use tokio::task::JoinError;
 use url::Url;
 
-pub use crate::fetch::cache::{JLAPFooter, JLAPState, RepoDataState};
+pub use crate::fetch::cache::{JLAPFooter, JLAPState};
+pub use crate::fetch::RepoDataState;
 
 /// File suffix for JLAP file
 pub const JLAP_FILE_SUFFIX: &str = "jlap";
@@ -634,7 +635,7 @@ mod test {
     use super::patch_repo_data;
     use std::path::PathBuf;
 
-    use crate::fetch::cache::RepoDataState;
+    use crate::fetch::RepoDataState;
     use crate::utils::simple_channel_server::SimpleChannelServer;
 
     use rattler_digest::{parse_digest_from_hex, Blake2b256};
