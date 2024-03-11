@@ -11,10 +11,13 @@ license.workspace = true
 readme.workspace = true
 
 [dependencies]
+async-trait = "0.1.77"
 async-compression = { workspace = true, features = ["gzip", "tokio", "bzip2", "zstd"] }
 blake2 = { workspace = true }
 cache_control = { workspace = true }
 chrono = { workspace = true, features = ["std", "serde", "alloc", "clock"] }
+dashmap = "5.5.3"
+elsa = "1.10.0"
 humansize = { workspace = true }
 humantime = { workspace = true }
 futures = { workspace = true }
@@ -31,6 +34,7 @@ serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 pin-project-lite = { workspace = true }
 md-5 = { workspace = true }
+dirs = { workspace = true }
 rattler_digest = { path="../rattler_digest", version = "0.19.1", default-features = false, features = ["tokio", "serde"] }
 rattler_conda_types = { path="../rattler_conda_types", version = "0.20.1", default-features = false, optional = true }
 fxhash = { workspace = true, optional = true }
@@ -58,9 +62,11 @@ rstest = { workspace = true }
 tokio = { workspace = true, features = ["macros", "rt-multi-thread"] }
 tower-http = { workspace = true, features = ["fs", "compression-gzip", "trace"] }
 tracing-test = { workspace = true }
+rattler_conda_types = { path="../rattler_conda_types", version = "0.20.0", default-features = false }
 
 [features]
 default = ['native-tls']
 native-tls = ['reqwest/native-tls']
 rustls-tls = ['reqwest/rustls-tls']
 sparse = ["rattler_conda_types", "memmap2", "ouroboros", "superslice", "itertools", "serde_json/raw_value"]
+gateway = ["sparse"]
